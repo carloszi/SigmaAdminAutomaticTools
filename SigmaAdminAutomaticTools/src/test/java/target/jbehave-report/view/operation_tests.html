@@ -1,0 +1,102 @@
+<html>
+<head>
+<title>operation_tests</title>
+<style type="text/css" media="all">
+@import url( "./style/jbehave-core.css" );
+</style>
+</head>
+<body>
+<div class="story">
+<h1></h1>
+<div class="path">operation_tests.story</div>
+<div class="narrative"><h2>Narrative:</h2>
+<div class="element inOrderTo"><span class="keyword inOrderTo">As a</span> user</div>
+<div class="element asA"><span class="keyword asA">I want to</span> find document client by barcode</div>
+<div class="element iWantTo"><span class="keyword iWantTo">So that</span> I can achieve a business goal</div>
+</div>
+<div class="scenario">
+<h2>Scenario: Searching document client</h2>
+<div class="examples">
+<h3>Examples:</h3>
+<div class="step">Given Open webdriver</div>
+<div class="step">When I go to operations-web</div>
+<div class="step">Then I see Podaj dane logowania</div>
+<div class="step">When I login to main page</div>
+<div class="step">Then I see welcome page</div>
+<div class="step">When I write &lt;agreementId&gt; in search field and click searching</div>
+<div class="step">Then I see client data &lt;clientData&gt;</div>
+<div class="step">When I click debt value</div>
+<div class="step">Then I see client data section &lt;clientData&gt;</div>
+<div class="step">When I click documents</div>
+<div class="step">Then I see documents header</div>
+<div class="step">When I fill &lt;barcode&gt;</div>
+<div class="step">Then I see only one document</div>
+<table>
+<thead>
+<tr>
+<th>agreementId</th><th>clientData</th><th>barcode</th></tr>
+</thead>
+<tbody>
+<tr>
+<td>11749002</td><td>37KOM</td><td>009003207277</td></tr>
+<tr>
+<td>11748835</td><td>JH INTERNATIONAL SP&Oacute;ŁKA Z OGRANICZONĄ ODPOWIEDZIALNOŚCIĄ</td><td>009003207195</td></tr>
+</tbody>
+</table>
+
+<h3 class="example">Example: {agreementId=11749002, clientData=37KOM, barcode=009003207277}</h3>
+<div class="step successful">Given Open webdriver</div>
+<div class="step successful">When I go to operations-web</div>
+<div class="step successful">Then I see Podaj dane logowania</div>
+<div class="step successful">When I login to main page</div>
+<div class="step successful">Then I see welcome page</div>
+<div class="step successful">When I write <span class="step parameter">11749002</span> in search field and click searching</div>
+<div class="step successful">Then I see client data <span class="step parameter">37KOM</span></div>
+<div class="step successful">When I click debt value</div>
+<div class="step successful">Then I see client data section <span class="step parameter">37KOM</span></div>
+<div class="step successful">When I click documents</div>
+<div class="step successful">Then I see documents header</div>
+<div class="step successful">When I fill <span class="step parameter">009003207277</span></div>
+<div class="step successful">Then I see only one document</div>
+
+<h3 class="example">Example: {agreementId=11748835, clientData=JH INTERNATIONAL SP&Oacute;ŁKA Z OGRANICZONĄ ODPOWIEDZIALNOŚCIĄ, barcode=009003207195}</h3>
+<div class="step successful">Given Open webdriver</div>
+<div class="step successful">When I go to operations-web</div>
+<div class="step successful">Then I see Podaj dane logowania</div>
+<div class="step successful">When I login to main page</div>
+<div class="step successful">Then I see welcome page</div>
+<div class="step successful">When I write <span class="step parameter">11748835</span> in search field and click searching</div>
+<div class="step successful">Then I see client data <span class="step parameter">JH INTERNATIONAL SP&Oacute;ŁKA Z OGRANICZONĄ ODPOWIEDZIALNOŚCIĄ</span></div>
+<div class="step successful">When I click debt value</div>
+<div class="step successful">Then I see client data section <span class="step parameter">JH INTERNATIONAL SP&Oacute;ŁKA Z OGRANICZONĄ ODPOWIEDZIALNOŚCIĄ</span></div>
+<div class="step successful">When I click documents</div>
+<div class="step successful">Then I see documents header</div>
+<div class="step successful">When I fill <span class="step parameter">009003207195</span></div>
+<div class="step successful">Then I see only one document</div>
+</div>
+</div>
+</div>
+
+</body>
+<!--  SyntaxHighlighter resources:  should be included at end of body -->
+<link rel="stylesheet" type="text/css" href="./style/sh-3.0.83/shCore.css"/>
+<link rel="stylesheet" type="text/css" href="./style/sh-3.0.83/shThemeRDark.css"/>
+<script language="javascript" src="./js/sh-3.0.83/shCore.js"></script>
+<script language="javascript" src="./js/sh-3.0.83/shBrushBash.js"></script>
+<script language="javascript" src="./js/sh-3.0.83/shBrushCss.js"></script>
+<script language="javascript" src="./js/sh-3.0.83/shBrushDiff.js"></script>
+<script language="javascript" src="./js/sh-3.0.83/shBrushGroovy.js"></script>
+<script language="javascript" src="./js/sh-3.0.83/shBrushJava.js"></script>
+<script language="javascript" src="./js/sh-3.0.83/shBrushJScript.js"></script>
+<script language="javascript" src="./js/sh-3.0.83/shBrushPlain.js"></script>
+<script language="javascript" src="./js/sh-3.0.83/shBrushPython.js"></script>
+<script language="javascript" src="./js/sh-3.0.83/shBrushRuby.js"></script>
+<script language="javascript" src="./js/sh-3.0.83/shBrushScala.js"></script>
+<script language="javascript" src="./js/sh-3.0.83/shBrushXml.js"></script>
+<script language="javascript" src="./js/shBrushBdd.js"></script>
+<script type="text/javascript">
+    SyntaxHighlighter.defaults['gutter'] = false;
+    SyntaxHighlighter.defaults['toolbar'] = false;    
+    SyntaxHighlighter.all();
+</script>
+</html>

@@ -1,0 +1,60 @@
+/*    @BeforeClass
+    public static void setEnv() {
+        System.setProperty("webdriver.chrome.driver", "C:\\dev\\tools\\chromedriver.exe");
+    }
+
+    @Before
+    public void setConfig() throws InterruptedException {
+        this.driver.get("https://b.int.sigma/sigma-admin-web/noAuth/login");
+        this.driver.manage().window().maximize();
+        Thread.sleep(2000);
+    }
+
+    //Oczekiwanie, że po zalogowaniu znajdziemy się na stronie domowej admina
+    @Test
+    public void testLogin() {
+        this.apa.loginToAdmin();
+        assertEquals(this.apa.lbl_MainSite.getText(), "Strona domowa");
+    }
+
+    //Oczekiwaie, że po wylogowaniu znajdziemy się na stronei modułu administratora
+    @Test
+    public void testLogut() throws InterruptedException {
+        this.apa.loginToAdmin();
+        this.apa.logoutFromAdmin();
+        Thread.sleep(2000);
+        assertEquals(this.apa.lbl_AdminWeb.getText(), "Moduł administratora - dane logowania");
+
+    }
+
+    //Oczekiwanie, że po wejściu do listy działań strategicznych będzie wyświetlony napis Działania strategiczne
+    @Test
+    public void testActionDefinitionList() throws InterruptedException {
+        this.apa.loginToAdmin();
+        Thread.sleep(2000);
+        this.apa.goToActionDefinitionList();
+        Thread.sleep(2000);
+        assertEquals(this.apa.lbl_ActionDefinitionList.getText(), "Działania strategiczne");
+    }
+
+    //Oczekiwanie, że po dodaniu wniosku egzekucyjnego znajdzie się on na liście
+    @Test
+    public void testConfigureExecutionApplication() throws InterruptedException, ClassNotFoundException, SQLException {
+        this.apa.loginToAdmin();
+        Thread.sleep(1000);
+        this.apa.goToActionDefinitionList();
+        Thread.sleep(1000);
+        this.apa.createActionExecutionApplication("DS_WE_test_name", "DS_WE_test_symbol");
+        Thread.sleep(1000);
+        Integer listSize = this.apa.getActionDefinitionListSize();
+        assertEquals(String.valueOf(listSize), "1");
+        database.StrategyProcessDatabase spd = new database.StrategyProcessDatabase();
+        ArrayList<String> activityDefinitionNames = spd.getDBData("StrategyProcess", "ActionDefinition", "name");
+        assertTrue(activityDefinitionNames.contains("DS_WE_test_name"));
+    }
+
+    @After
+    public void closeDriver() {
+
+        this.driver.close();
+    }

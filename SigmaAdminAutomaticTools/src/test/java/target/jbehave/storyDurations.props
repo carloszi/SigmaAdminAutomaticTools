@@ -1,0 +1,6 @@
+#org.jbehave.core.embedder.StoryManager
+#Wed Mar 28 10:36:00 CEST 2018
+admin_tests.story=3000
+threads=1
+total=3000
+threadAverage=3000

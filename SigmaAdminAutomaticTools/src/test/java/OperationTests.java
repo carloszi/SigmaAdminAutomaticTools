@@ -158,9 +158,4 @@ public class OperationTests extends JUnitStory {
     public List candidateSteps() {
         return new InstanceStepsFactory(configuration(), this).createCandidateSteps();
     }
-
-
-
-
-
 }

@@ -43,22 +43,13 @@ import static org.jbehave.core.reporters.Format.XML;
  * Created by zieli_k on 2018-04-24.
  */
 public class OperationTests extends JUnitStory {
-    //extends JUnitStory
     private OperationsAgreementPage agreementPage;
     private OperationsClientPage clientPage;
     private OperationsDocumentPage documentPage;
     private OperationsHomePage homePage;
     private OperationsMainPage mainPage;
     private static WebDriver driver;
-    //private final CrossReference xref = new CrossReference();
 
-
-    /*@BeforeClass
-    public static void driverSetup() {
-        System.setProperty("webdriver.chrome.driver", "C:\\dev\\tools\\chromedriver.exe");
-        driver = new ChromeDriver();
-        //driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
-    }*/
 
     @BeforeStory
     public void before(){
@@ -85,9 +76,10 @@ public class OperationTests extends JUnitStory {
     }
 
     @When("I go to operations-web")
-    public void goToOperationsWeb(){
+    public void goToOperationsWeb() throws InterruptedException {
         driver.get("https://sigmapprod/sigma-operations-web/noAuth/login");
-        driver.manage().window().maximize();
+        Thread.sleep(1000);
+        //driver.manage().window().maximize();
     }
 
     @Then("I see Podaj dane logowania")
@@ -146,7 +138,6 @@ public class OperationTests extends JUnitStory {
     public void seeOnlyOneDocument(){
         documentPage.checkCountDocuments();
         mainPage.logoutFromApp();
-
     }
 
     @AfterStory
@@ -154,7 +145,6 @@ public class OperationTests extends JUnitStory {
         Thread.sleep(2000);
         driver.manage().deleteAllCookies();
         driver.close();
-
     }
 
     @Override

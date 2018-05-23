@@ -2,6 +2,7 @@
  * Created by zieli_k on 2018-02-21.
  */
 
+/*
 import database.StrategyProcessDatabase;
 import org.jbehave.core.Embeddable;
 import org.jbehave.core.annotations.*;
@@ -162,9 +163,4 @@ public class AdminTests extends JUnitStory{
     }
 
 
-}
-
-
-
-
-
+}*/

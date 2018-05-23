@@ -19,7 +19,10 @@ import org.jbehave.core.reporters.Format;
 import org.jbehave.core.reporters.StoryReporterBuilder;
 import org.jbehave.core.steps.InstanceStepsFactory;
 import org.jbehave.core.steps.ParameterConverters;
+import org.jbehave.core.steps.Steps;
 import org.junit.BeforeClass;
+import org.openqa.selenium.OutputType;
+import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -40,24 +43,27 @@ import static org.jbehave.core.reporters.Format.XML;
  * Created by zieli_k on 2018-04-24.
  */
 public class OperationTests extends JUnitStory {
-
+    //extends JUnitStory
     private OperationsAgreementPage agreementPage;
     private OperationsClientPage clientPage;
     private OperationsDocumentPage documentPage;
     private OperationsHomePage homePage;
     private OperationsMainPage mainPage;
     private static WebDriver driver;
-    private final CrossReference xref = new CrossReference();
+    //private final CrossReference xref = new CrossReference();
 
-    @BeforeClass
+
+    /*@BeforeClass
     public static void driverSetup() {
         System.setProperty("webdriver.chrome.driver", "C:\\dev\\tools\\chromedriver.exe");
         driver = new ChromeDriver();
         //driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
-    }
+    }*/
 
-    @BeforeStories
+    @BeforeStory
     public void before(){
+        System.setProperty("webdriver.chrome.driver", "C:\\dev\\tools\\chromedriver.exe");
+        driver = new ChromeDriver();
         agreementPage = new OperationsAgreementPage(driver);
         clientPage = new OperationsClientPage(driver);
         documentPage = new OperationsDocumentPage(driver);
@@ -67,6 +73,13 @@ public class OperationTests extends JUnitStory {
 
     @Given("Open webdriver")
     public void openWebdriver(){
+        /*System.setProperty("webdriver.chrome.driver", "C:\\dev\\tools\\chromedriver.exe");
+        driver = new ChromeDriver();
+        agreementPage = new OperationsAgreementPage(driver);
+        clientPage = new OperationsClientPage(driver);
+        documentPage = new OperationsDocumentPage(driver);
+        homePage = new OperationsHomePage(driver);
+        mainPage = new OperationsMainPage(driver);*/
         //driver = new ChromeDriver();
         driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
     }

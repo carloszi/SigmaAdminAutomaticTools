@@ -98,14 +98,16 @@ public class OperationTests extends JUnitStory {
     }
 
     @When("I write $agreementId in search field and click searching")
-    public void writeAgreementId(String agreementId){
+    public void writeAgreementId(String agreementId) throws InterruptedException {
         mainPage.fillAgreementId(agreementId);
         mainPage.searchingAgreement();
+        Thread.sleep(1000);
     }
 
     @Then("I see client data $clientData")
-    public void seeClientData(String clientData){
+    public void seeClientData(String clientData) throws InterruptedException {
         agreementPage.checkClientData(clientData);
+        Thread.sleep(1000);
     }
 
     @When("I click debt value")
@@ -115,8 +117,9 @@ public class OperationTests extends JUnitStory {
     }
 
     @Then("I see client data section $clientData")
-    public void seeClientDataSecion(String clientData){
+    public void seeClientDataSecion(String clientData) throws InterruptedException {
         clientPage.checkClientDataLabel(clientData);
+        Thread.sleep(1000);
     }
 
     @When("I click documents")
@@ -146,7 +149,7 @@ public class OperationTests extends JUnitStory {
         driver.manage().deleteAllCookies();
         driver.close();
     }
-
+/*
     @Override
     public Configuration configuration() {
         return new MostUsefulConfiguration()
@@ -161,4 +164,5 @@ public class OperationTests extends JUnitStory {
     public List candidateSteps() {
         return new InstanceStepsFactory(configuration(), this).createCandidateSteps();
     }
+    */
 }

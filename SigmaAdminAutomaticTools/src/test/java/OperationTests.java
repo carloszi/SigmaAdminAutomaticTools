@@ -60,6 +60,7 @@ public class OperationTests extends JUnitStory {
         documentPage = new OperationsDocumentPage(driver);
         homePage = new OperationsHomePage(driver);
         mainPage = new OperationsMainPage(driver);
+        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
     }
 
     @Given("Open webdriver")
@@ -83,18 +84,21 @@ public class OperationTests extends JUnitStory {
     }
 
     @Then("I see Podaj dane logowania")
-    public void seeLoginData(){
+    public void seeLoginData() throws InterruptedException {
         homePage.checkLoginDataHeader();
+        Thread.sleep(1000);
     }
 
     @When("I login to main page")
-    public void loginToMainPage(){
+    public void loginToMainPage() throws InterruptedException {
         homePage.loginOperationsWeb();
+        Thread.sleep(1000);
     }
 
     @Then("I see welcome page")
-    public void seeWelcomePage(){
+    public void seeWelcomePage() throws InterruptedException {
         mainPage.welcomeTabExists();
+        Thread.sleep(1000);
     }
 
     @When("I write $agreementId in search field and click searching")
@@ -113,28 +117,31 @@ public class OperationTests extends JUnitStory {
     @When("I click debt value")
     public void clickDebtValue() throws InterruptedException {
         agreementPage.clickDebtValue();
-        Thread.sleep(1000);
+        Thread.sleep(2000);
     }
 
     @Then("I see client data section $clientData")
     public void seeClientDataSecion(String clientData) throws InterruptedException {
         clientPage.checkClientDataLabel(clientData);
-        Thread.sleep(1000);
+        Thread.sleep(2000);
     }
 
     @When("I click documents")
-    public void clickDocuments(){
+    public void clickDocuments() throws InterruptedException {
         clientPage.clickClientDocuments();
+        Thread.sleep(500);
     }
 
     @Then("I see documents header")
-    public void seeDocumentHeader(){
+    public void seeDocumentHeader() throws InterruptedException {
         documentPage.checkClientDocument();
+        Thread.sleep(1000);
     }
 
     @When("I fill $barcode")
-    public void fillBarcode(String barcode){
+    public void fillBarcode(String barcode) throws InterruptedException {
         documentPage.writeBarcodeToSearchField(barcode);
+        Thread.sleep(1000);
     }
 
     @Then("I see only one document")
@@ -147,7 +154,9 @@ public class OperationTests extends JUnitStory {
     public void closeDriver() throws InterruptedException {
         Thread.sleep(2000);
         driver.manage().deleteAllCookies();
+        Thread.sleep(1000);
         driver.close();
+        Thread.sleep(1000);
     }
 /*
     @Override
